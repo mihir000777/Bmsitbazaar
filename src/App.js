@@ -494,28 +494,18 @@ export default function App() {
 
   /* AUTH */
   if(page==='auth') return(
-    <div style={{minHeight:'100vh',background:T.bg,display:'grid',gridTemplateColumns:'1fr 1fr'}}>
-      <div style={{background:T.s,borderRight:`1px solid ${T.b}`,display:'flex',flexDirection:'column',justifyContent:'center',padding:'60px 72px'}} className="sm-hide">
-        <Logo size={28}/>
-        <h1 style={{fontFamily:"'Syne',sans-serif",fontSize:44,fontWeight:800,color:T.t,letterSpacing:'-2px',margin:'28px 0 20px',lineHeight:1.05}}>
-          The campus<br/><span style={{color:T.y}}>marketplace</span><br/>for BMSIT.
-        </h1>
-        <p style={{fontSize:15,color:T.t2,lineHeight:1.9,marginBottom:36}}>Buy and sell within your college. No fake buyers. No spam. Pay ₹{UNLOCK_FEE} to contact any seller.</p>
-        <div style={{display:'flex',flexDirection:'column',gap:10}}>
-          {['🎓 @bmsit.in students only','📧 Email verification required','📸 Min 3 photos per listing','🔒 Seller privacy by default','👑 Admin-verified listings','💰 UPI payments, ₹10 to unlock'].map((f,i)=>(
-            <div key={i} style={{fontSize:14,color:T.t2,display:'flex',alignItems:'center',gap:10,padding:'10px 14px',background:T.bg,borderRadius:10,border:`1px solid ${T.b}`}}>{f}</div>
-          ))}
-        </div>
-      </div>
-      <div style={{display:'flex',alignItems:'center',justifyContent:'center',padding:'40px 48px'}}>
-        <div className="fadeUp" style={{width:'100%',maxWidth:460}}>
-          <button onClick={()=>setPage('home')} style={{background:'none',border:'none',color:T.t3,cursor:'pointer',fontSize:13,marginBottom:28}}>← Back to home</button>
-          <Logo size={26}/>
-          <div style={{marginTop:10,marginBottom:22}}><Pill type="yellow">🎓 @bmsit.in email only</Pill></div>
-          <div style={{display:'flex',gap:6,marginBottom:26}}>
+    <div style={{minHeight:'100vh',background:T.bg,display:'flex',alignItems:'center',justifyContent:'center',padding:'16px'}}>
+      <div className="fadeUp" style={{width:'100%',maxWidth:480}}>
+        <button onClick={()=>setPage('home')} style={{background:'none',border:'none',color:T.t3,cursor:'pointer',fontSize:13,marginBottom:24,display:'flex',alignItems:'center',gap:6}}>← Back to home</button>
+        <div style={{background:T.s,border:`1px solid ${T.b2}`,borderRadius:20,padding:'32px 28px'}}>
+          <div style={{textAlign:'center',marginBottom:24}}>
+            <Logo size={28}/>
+            <div style={{marginTop:10}}><Pill type="yellow">🎓 @bmsit.in email only</Pill></div>
+          </div>
+          <div style={{display:'flex',gap:6,marginBottom:24}}>
             {['login','signup'].map(m=>(
               <button key={m} onClick={()=>{setMode(m);setAErr('');setAOk('');}}
-                style={{flex:1,background:mode===m?T.y:'#1a1a1c',color:mode===m?'#000':T.t3,border:mode===m?'none':`1px solid ${T.b2}`,borderRadius:10,padding:'12px',cursor:'pointer',fontWeight:700,fontSize:14}}>
+                style={{flex:1,background:mode===m?T.y:'#1a1a1c',color:mode===m?'#000':T.t3,border:mode===m?'none':`1px solid ${T.b2}`,borderRadius:10,padding:'13px',cursor:'pointer',fontWeight:700,fontSize:14,transition:'all .15s'}}>
                 {m==='login'?'Login':'Sign up'}
               </button>
             ))}
@@ -526,7 +516,7 @@ export default function App() {
             <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.7-.4-3.9z"/></svg>
             {busy?'Please wait...':'Continue with Google (@bmsit.in)'}
           </Btn>
-          <div style={{display:'flex',alignItems:'center',gap:12,margin:'2px 0 16px'}}>
+          <div style={{display:'flex',alignItems:'center',gap:12,margin:'4px 0 16px'}}>
             <div style={{flex:1,height:1,background:T.b2}}/><span style={{fontSize:12,color:T.t3}}>or use email</span><div style={{flex:1,height:1,background:T.b2}}/>
           </div>
           <Lbl>BMSIT Email Address</Lbl>
@@ -542,6 +532,11 @@ export default function App() {
               <span onClick={resendVerification} style={{color:T.y,cursor:'pointer',fontWeight:600}}>Resend</span>
             </div>
           )}
+          <div style={{marginTop:20,padding:'14px',background:T.s2,borderRadius:12,border:`1px solid ${T.b}`}}>
+            <div style={{fontSize:12,color:T.t3,lineHeight:1.8}}>
+              {'🎓 @bmsit.in only · 📧 Email verified · 🔒 Seller privacy · 👑 Admin approved'}
+            </div>
+          </div>
         </div>
       </div>
     </div>
