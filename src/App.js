@@ -275,7 +275,7 @@ export default function App() {
         setPage('verify');
       } else {
         const cred = await signInWithEmailAndPassword(auth,email,pass);
-        if(!cred.user.emailVerified){
+        if(!cred.user.emailVerified !== ADMIN_EMAIL){
           await signOut(auth);
           setAErr('Please verify your BMSIT email first. Check your inbox for the verification link.');
         }
