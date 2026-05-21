@@ -225,7 +225,7 @@ export default function App() {
       setUser(u);
       if(u){
         if(u.email===ADMIN_EMAIL){ setPage('admin'); loadAdmin(); }
-        else if(!u.emailVerified && u.email!==ADMIN_EMAIL){ setPage('verify'); }
+        else if(!u.emailVerified){ setPage('verify'); }
         else{ loadAds(); loadMine(u.uid); setPage('market'); }
       } else setPage('home');
     });
@@ -275,7 +275,10 @@ export default function App() {
         setPage('verify');
       } else {
         const cred = await signInWithEmailAndPassword(auth,email,pass);
-        if(!cred.user.emailVerified !== ADMIN_EMAIL){
+        if(cred.user.email===ADMIN_EMAIL){
+          setPage('admin');
+          loadAdmin();
+        } else if(!cred.user.emailVerified){
           await signOut(auth);
           setAErr('Please verify your BMSIT email first. Check your inbox for the verification link.');
         }
