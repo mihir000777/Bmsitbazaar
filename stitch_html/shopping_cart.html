@@ -1,0 +1,321 @@
+<!DOCTYPE html><html class="dark" lang="en"><head></head><body class="font-body-md text-body-md bg-background min-h-screen">```html
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            background-color: #09090b;
+            color: #e5e1e4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+        }
+        .bg-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+        }
+        .orb-1 { top: -10%; left: -10%; background: #1e1b4b; }
+        .orb-2 { bottom: -10%; right: -10%; background: #574500; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #353437; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #facc15; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#1c1b1d",
+                      "surface-tint": "#eec200",
+                      "on-secondary-container": "#00311f",
+                      "on-primary": "#3c2f00",
+                      "tertiary-fixed": "#a0efff",
+                      "inverse-primary": "#735c00",
+                      "surface-container-lowest": "#0e0e10",
+                      "secondary": "#4edea3",
+                      "outline-variant": "#4d4632",
+                      "surface-container": "#201f22",
+                      "on-secondary-fixed": "#002113",
+                      "surface-base": "#18181b",
+                      "inverse-surface": "#e5e1e4",
+                      "secondary-container": "#00a572",
+                      "on-primary-container": "#6c5700",
+                      "surface": "#131315",
+                      "on-surface": "#e5e1e4",
+                      "primary-fixed-dim": "#eec200",
+                      "error-container": "#93000a",
+                      "secondary-fixed": "#6ffbbe",
+                      "surface-variant": "#353437",
+                      "background-accent": "#1e1b4b",
+                      "secondary-fixed-dim": "#4edea3",
+                      "surface-container-highest": "#353437",
+                      "on-secondary": "#003824",
+                      "on-tertiary-fixed-variant": "#004e59",
+                      "background": "#131315",
+                      "tertiary-fixed-dim": "#15daf4",
+                      "outline": "#9a9078",
+                      "primary": "#ffecb9",
+                      "on-primary-fixed-variant": "#574500",
+                      "on-tertiary": "#00363e",
+                      "inverse-on-surface": "#313032",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed": "#001f25",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-dim": "#131315",
+                      "on-primary-fixed": "#231b00",
+                      "surface-container-high": "#2a2a2c",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-container": "#33e4ff",
+                      "tertiary": "#c7f5ff",
+                      "primary-fixed": "#ffe083",
+                      "on-tertiary-container": "#006270",
+                      "surface-bright": "#39393b",
+                      "error": "#ffb4ab",
+                      "primary-container": "#facc15",
+                      "on-background": "#e5e1e4",
+                      "border-low-light": "rgba(255, 255, 255, 0.05)",
+                      "neon-yellow-glow": "rgba(250, 204, 21, 0.4)",
+                      "on-surface-variant": "#d1c6ab"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-desktop": "40px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Outfit"],
+                      "headline-lg": ["Syne"],
+                      "headline-md": ["Syne"],
+                      "body-lg": ["Outfit"],
+                      "headline-lg-mobile": ["Syne"],
+                      "display-lg": ["Syne"],
+                      "body-md": ["Outfit"],
+                      "label-md": ["Outfit"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+<!-- TopNavBar -->
+<nav class="bg-surface/60 backdrop-blur-xl border-b border-white/5 fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20">
+<div class="flex items-center gap-4">
+<img alt="BMSIT Bazaar Logo" class="h-10 w-auto cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_15}}'" src="https://lh3.googleusercontent.com/aida/ADBb0ujbhJ46LiXKW7g9ULCKqZwGCdPr8RT7GFIRC6MAnTQNfxkF0fAiLZdF3Lgo3K_YvGfHbuMFz8rEV_QAF8QT-Bsr1k9-VfmqhakIiyCrgF6x0GPrZH0JeaQHZ6VV7XkObZATMc2NZ0fOC1ynCizJprM958spnCEKV9sfdsy4OBpp16I103YTDKWYHwlAOprE3uO-1exIICMNjTb38qY16z7iDj1q4rGI1aO1-DRTMyzye94VriQIyEFDFCI">
+<span class="font-headline-lg text-headline-lg font-bold text-primary hidden sm:block cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_15}}'">BMSIT Bazaar</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-primary font-bold flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_bag" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="hidden md:inline font-label-md text-label-md">2 Items</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A clean, close-up studio portrait of a young college student smiling. The lighting is soft and cinematic with a dark, tech-inspired background using deep indigo and neon yellow highlights to match a premium marketplace aesthetic. The student looks approachable and professional, representing a modern campus user." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_4OKaEsLuOohHBK4x5xSC7ReLbrTjSmTaLBJ6sE8Glq4AXhCkMh-yaGmZ_X7zTFc4zmrJh6nUd220mL1KJ8_UwUjBkF2KY6KPLU7wKCzIzyiNjwUQII9hxCMQqohnZ9qEHE5sNeTmETAGz3JebeeJ0VlHjUS6ib4T8-SMZUhCPucr5QnxGzgb_fPVqF2eOIykpCXUg8PwP7lO27g_K2ROwUCC7Q-s1RwCB_e6ScoFo8xiarZ_CaCO3-ogT6yjYe19z0RnZE2BnfI">
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-28 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<header class="mb-gutter">
+<h1 class="font-headline-lg text-headline-lg md:text-display-lg text-on-surface mb-2">Your Shopping Bag</h1>
+<p class="text-on-surface-variant font-body-md">Review your items before proceeding to checkout.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Cart List -->
+<div class="lg:col-span-8 space-y-4">
+<!-- Item Card 1 -->
+<div class="glass-card p-4 md:p-6 rounded-xl flex flex-col sm:flex-row items-center gap-6 group hover:border-primary/20 transition-all duration-300">
+<div class="w-full sm:w-32 h-32 rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Sony WH-1000XM4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0" data-alt="A cinematic product shot of sleek black Sony WH-1000XM4 headphones resting on a dark reflective surface. The lighting is dramatic and low-key, with sharp highlights that accentuate the premium textures of the device. Faint neon yellow light streaks in the background enhance the futuristic, tech-forward aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCknVWxxR471rlDnysz_zVCm4YZNjMp2RDVSk0DJ-OokdXdlNsO6isKRbObKLCPyUAwasmbZG11ePjptq5BaGAH8jnyHP82uq2jt3CEcDAAiCIeELXgLtvUxEjqz4xo9W717U9fvMGJyRgetgUweLGc8FyBBR_Zt2oklPxAE0F-T0BTv1rQ5JwprF5ve6UyPZ0AL__52WEnhcmalzkJdF_BVkAlV6IwcWQhOhZ-glluw4N8rygDlumR3TDIz_USfAydRjJmYnrPpWw">
+</div>
+<div class="flex-grow text-center sm:text-left">
+<div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Sony WH-1000XM4</h3>
+<p class="text-on-surface-variant font-label-sm">Tech &amp; Gadgets • Like New</p>
+</div>
+<span class="text-primary-container font-headline-md text-headline-md drop-shadow-[0_0_8px_rgba(250,204,21,0.2)]">₹14,500</span>
+</div>
+<div class="mt-6 flex flex-wrap justify-center sm:justify-between items-center gap-4">
+<div class="flex items-center bg-background rounded-full border border-white/5 p-1">
+<button class="w-8 h-8 flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
+</button>
+<span class="px-4 font-label-md text-label-md">1</span>
+<button class="w-8 h-8 flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-error transition-colors font-label-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="glass-card p-4 md:p-6 rounded-xl flex flex-col sm:flex-row items-center gap-6 group hover:border-primary/20 transition-all duration-300">
+<div class="w-full sm:w-32 h-32 rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Mini Drafter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0" data-alt="A professional engineering mini drafter tool placed on a dark drafting board. The scene is lit with a cool-toned studio light that emphasizes the metallic details and precise markings of the instrument. The atmosphere is academic yet sophisticated, with a premium tech-market feel and a slight neon yellow glow on the focal points." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-D42qhpzOVKJ1gPu9GK8moUut92VL2MRZ3YgTNNQIy4T-jRTPZyPZXRfn_Il0OqyI2z0xNYfVv9u4uC8WWHk9hOBHGMf5QIM6KN4Y07QlJUvvNTSo4BtANqMlOA-bkVHz47Hz2-afVAXfwAaBtCeiqcl0DsAvMof6Vj7q8xGJlgVQ7aLF-vV8fJVubCr_2YVf8CmxzR7Bnh7cWvIwReAFvtVgv6RH1i3P_3yq69UCUeaWRXoB4ye9NA_0R3n3eAwoabBmIiG2QRw">
+</div>
+<div class="flex-grow text-center sm:text-left">
+<div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Mini Drafter</h3>
+<p class="text-on-surface-variant font-label-sm">Academics • Used (Good)</p>
+</div>
+<span class="text-primary-container font-headline-md text-headline-md drop-shadow-[0_0_8px_rgba(250,204,21,0.2)]">₹450</span>
+</div>
+<div class="mt-6 flex flex-wrap justify-center sm:justify-between items-center gap-4">
+<div class="flex items-center bg-background rounded-full border border-white/5 p-1">
+<button class="w-8 h-8 flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
+</button>
+<span class="px-4 font-label-md text-label-md">1</span>
+<button class="w-8 h-8 flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-error transition-colors font-label-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2 font-label-md group" onclick="window.location.href='{{DATA:SCREEN:SCREEN_22}}'">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" data-icon="arrow_back">arrow_back</span>
+                        Continue Shopping
+                    </button>
+</div>
+</div>
+<!-- Cart Summary -->
+<aside class="lg:col-span-4 sticky top-28">
+<div class="glass-card p-6 md:p-8 rounded-xl border-primary/10 neon-glow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Order Summary</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">Subtotal</span>
+<span class="text-on-surface font-body-lg">₹14,950</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">Campus Pickup</span>
+<span class="text-secondary font-label-md">FREE</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md">Convenience Fee</span>
+<span class="text-on-surface font-body-lg">₹20</span>
+</div>
+<div class="h-px bg-white/5 my-2"></div>
+<div class="flex justify-between items-end pt-2">
+<span class="text-on-surface font-headline-md">Total Amount</span>
+<div class="text-right">
+<span class="block text-primary-container font-display-lg text-[40px] leading-none drop-shadow-[0_0_12px_rgba(250,204,21,0.4)]">₹14,970</span>
+<span class="text-on-surface-variant font-label-sm">incl. all taxes</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary py-4 rounded-lg font-headline-md text-headline-md active:scale-[0.98] transition-all hover:bg-surface-tint hover:shadow-[0_0_25px_rgba(250,204,21,0.5)] flex items-center justify-center gap-3" onclick="window.location.href='{{DATA:SCREEN:SCREEN_104}}'">
+                        Proceed to Checkout
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="mt-8 p-4 rounded-lg bg-white/5 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user">verified_user</span>
+<div>
+<p class="font-label-md text-label-md text-secondary">Secure Student Transaction</p>
+<p class="text-on-surface-variant text-[12px] leading-tight mt-1">Payments are held in escrow until you confirm the item's condition at hand-off.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-4 md:hidden bg-surface-container/60 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(250,204,21,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-90" href="{{DATA:SCREEN:SCREEN_22}}">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-90" href="{{DATA:SCREEN:SCREEN_22}}">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-md text-label-md">Explore</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-label-md text-label-md">Sell</span>
+</a>
+<a class="flex flex-col items-center text-primary drop-shadow-[0_0_8px_rgba(250,204,21,0.4)] transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="font-label-md text-label-md">Cart</span>
+</a>
+</nav>
+<!-- Footer (Desktop) -->
+<footer class="hidden md:flex flex-col md:flex-row justify-between items-center gap-base px-margin-desktop py-gutter w-full bg-surface-container-lowest border-t border-white/5 mt-20">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md text-primary font-bold">BMSIT Bazaar</span>
+<span class="text-on-surface-variant text-body-md">© 2024. For students, by students.</span>
+</div>
+<div class="flex gap-gutter">
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-200 underline decoration-primary/30" href="#">Campus Map</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-200 underline decoration-primary/30" href="#">Hostel Rules</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-200 underline decoration-primary/30" href="#">Tech Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity duration-200 underline decoration-primary/30" href="#">Privacy</a>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for item removal
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText.includes('Remove')) {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.glass-card');
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateX(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                });
+            }
+        });
+    </script>
+```</body></html>

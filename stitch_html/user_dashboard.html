@@ -1,0 +1,361 @@
+<!DOCTYPE html><html class="dark" lang="en"><head></head><body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-fixed">```html
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Profile &amp; Activity | BMSIT Bazaar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-fixed": "#ffe083",
+                "on-primary-fixed": "#231b00",
+                "tertiary-container": "#33e4ff",
+                "outline-variant": "#4d4632",
+                "on-secondary-container": "#00311f",
+                "on-error": "#690005",
+                "on-primary": "#3c2f00",
+                "surface-container-low": "#1c1b1d",
+                "surface-container-highest": "#353437",
+                "border-low-light": "rgba(255, 255, 255, 0.05)",
+                "primary-fixed-dim": "#eec200",
+                "background-accent": "#1e1b4b",
+                "secondary-container": "#00a572",
+                "secondary": "#4edea3",
+                "neon-yellow-glow": "rgba(250, 204, 21, 0.4)",
+                "secondary-fixed-dim": "#4edea3",
+                "error-container": "#93000a",
+                "surface-container-high": "#2a2a2c",
+                "on-secondary-fixed": "#002113",
+                "outline": "#9a9078",
+                "inverse-primary": "#735c00",
+                "error": "#ffb4ab",
+                "on-surface-variant": "#d1c6ab",
+                "on-tertiary-fixed-variant": "#004e59",
+                "on-surface": "#e5e1e4",
+                "surface-tint": "#eec200",
+                "on-tertiary-container": "#006270",
+                "on-error-container": "#ffdad6",
+                "secondary-fixed": "#6ffbbe",
+                "inverse-surface": "#e5e1e4",
+                "surface-bright": "#39393b",
+                "on-primary-container": "#6c5700",
+                "on-tertiary-fixed": "#001f25",
+                "on-primary-fixed-variant": "#574500",
+                "tertiary": "#c7f5ff",
+                "surface-variant": "#353437",
+                "on-secondary": "#003824",
+                "background": "#131315",
+                "primary": "#ffecb9",
+                "on-secondary-fixed-variant": "#005236",
+                "primary-container": "#facc15",
+                "surface-container-lowest": "#0e0e10",
+                "tertiary-fixed": "#a0efff",
+                "surface": "#131315",
+                "inverse-on-surface": "#313032",
+                "surface-dim": "#131315",
+                "surface-container": "#201f22",
+                "surface-base": "#18181b",
+                "on-tertiary": "#00363e",
+                "tertiary-fixed-dim": "#15daf4",
+                "on-background": "#e5e1e4"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "gutter": "24px",
+                "container-max": "1280px",
+                "margin-desktop": "40px",
+                "margin-mobile": "16px",
+                "base": "8px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Syne"],
+                "label-md": ["Outfit"],
+                "label-sm": ["Outfit"],
+                "display-lg": ["Syne"],
+                "body-md": ["Outfit"],
+                "headline-lg-mobile": ["Syne"],
+                "headline-md": ["Syne"],
+                "body-lg": ["Outfit"]
+            },
+            "fontSize": {
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131315;
+            color: #e5e1e4;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow:hover {
+            box-shadow: 0px 0px 20px rgba(250, 204, 21, 0.3);
+        }
+        .bg-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+        }
+        .orb-1 { top: -10%; left: -10%; background: #facc15; }
+        .orb-2 { bottom: -10%; right: -10%; background: #1e1b4b; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .desaturate-hover img {
+            filter: grayscale(100%) brightness(0.8);
+            transition: all 0.3s ease;
+        }
+        .desaturate-hover:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+        @keyframes ping-custom {
+            0% { transform: scale(1); opacity: 1; }
+            70%, 100% { transform: scale(2.5); opacity: 0; }
+        }
+        .ping-animate {
+            animation: ping-custom 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+    </style>
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/5">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-extrabold text-primary-container tracking-tighter cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_2}}'">
+                BMSIT Bazaar
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_19}}">Explore</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_13}}">Listings</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_7}}">Messages</a>
+<a class="text-primary-container font-bold border-b-2 border-primary-container pb-1" href="{{DATA:SCREEN:SCREEN_3}}">Activity</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform" onclick="window.location.href='{{DATA:SCREEN:SCREEN_10}}'">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-container transition-colors">shopping_cart</span>
+</button>
+<button class="active:scale-95 transition-transform flex items-center gap-2 bg-surface-container px-3 py-1.5 rounded-full border border-white/5" onclick="window.location.href='{{DATA:SCREEN:SCREEN_3}}'">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="hidden md:inline font-label-md text-label-md">Aryan K.</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Bento Grid Profile Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- User Info Card -->
+<div class="md:col-span-4 glass-card p-8 rounded-xl flex flex-col items-center text-center">
+<div class="relative w-32 h-32 mb-6 group">
+<div class="absolute inset-0 bg-primary-container rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+<img class="w-full h-full object-cover rounded-full border-2 border-primary-container relative z-10" data-alt="A portrait of a stylish male college student with a modern haircut, wearing a minimalist black hoodie against a dark atmospheric studio background. The lighting is dramatic and moody, using soft golden rim lighting that echoes a premium tech aesthetic. High-end digital photography style with professional depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvB5_kvUzSBqiL76CsmJ8feLAZMzeslJeLF2QGh0mNLM8P5GGgg3OG5jqKt4fQ2_UZ2O-cAhAejJukyCs70b1nRAbo0mQpb-MC5T7ngU2Hd_UhuNamzk9XZZLhakVQKmFZ4elNUSyKGcD16QlMPeKYiyl8f4gJNmhdwLr2HtCUVQkgTDRSYADcUqQr9ohsarP74SYWAeGz2D5nBnfWYALnwXvUATpk-SM0hoGYcOHjQ-7rvfMkEAQ7uTKjPQN4VYotcAO7KoCgbqA">
+</div>
+<h1 class="font-headline-lg text-headline-lg mb-1">Aryan Kulkarni</h1>
+<p class="text-on-surface-variant font-label-md uppercase tracking-widest mb-6">1BY21CS042</p>
+<div class="w-full space-y-4">
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low border border-white/5">
+<span class="text-on-surface-variant font-label-sm">Branch</span>
+<span class="text-primary-fixed font-bold">CSE</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low border border-white/5">
+<span class="text-on-surface-variant font-label-sm">Semester</span>
+<span class="text-primary-fixed font-bold">6th Semester</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low border border-white/5">
+<span class="text-on-surface-variant font-label-sm">Reputation</span>
+<div class="flex gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.9</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 bg-primary-container text-on-primary-fixed font-headline-md py-4 rounded-lg font-bold neon-glow active:scale-95 transition-all">
+                    Edit Profile
+                </button>
+</div>
+<!-- Stats & Quick Actions -->
+<div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Summary Card -->
+<div class="glass-card p-6 rounded-xl relative overflow-hidden group cursor-pointer active:scale-95 transition-transform" onclick="window.location.href='{{DATA:SCREEN:SCREEN_3}}'">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h2 class="font-headline-md text-headline-md mb-2">Marketplace Impact</h2>
+<p class="text-on-surface-variant font-label-sm">Total value traded this semester</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-4xl">payments</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary-container">₹12,450</div>
+<div class="mt-4 flex items-center gap-2 text-secondary font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="">+12% from last month</span>
+</div>
+</div>
+<!-- Active Listings Mini-Grid -->
+<div class="glass-card p-6 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-headline-md">Live Listings</h2>
+<div class="flex items-center gap-2 bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
+<div class="w-2 h-2 bg-secondary rounded-full relative">
+<div class="absolute inset-0 bg-secondary rounded-full ping-animate"></div>
+</div>
+<span class="text-secondary font-bold text-[10px] uppercase">Active</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 desaturate-hover group/item">
+<img class="w-14 h-14 rounded object-cover" data-alt="A macro shot of a sleek academic textbook on machine learning with a dark minimalist cover design. Soft focused lighting highlights the texture of the paper and the typography. The background is a clean, dark surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPk82yRataPjQKUIVPW3QpcHIrxYPqDknrq65qNuUhwlEO2txkF6crlHx8NZ5wB9_CaJaUISUeipgscx2o1it-VWST2YaZZe7XftFyZerKyFx1qK66y4Zg80tfe8ZHvkgwAA5-Uk-am6dM01X_4RsaIIK50cTpnZVJtwLPb2UuhZzmaWPw6Ckc0Idsl4Fwb817yp5t3-LC4YZmqWIVcKEuJnuSjsrbSRlUtaVCBprqfV7Ij4kBFkATupYIpT6CT-SFV7-ldQ8_55Y">
+<div class="flex-1">
+<p class="font-bold text-on-surface">ML textbook v3</p>
+<p class="text-on-surface-variant font-label-sm">₹450 • 12 Views</p>
+</div>
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-container transition-colors active:scale-90" onclick="window.location.href='{{DATA:SCREEN:SCREEN_17}}'">edit</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors active:scale-90">delete</button>
+</div>
+</div>
+<div class="flex items-center gap-4 desaturate-hover group/item">
+<img class="w-14 h-14 rounded object-cover" data-alt="A professional calculator with a high-resolution display showing complex graphs. Minimalist studio lighting emphasizes its sleek black design and neon illuminated keys. Set against a dark, tech-oriented backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVdc2HEctXwstnCafVbh4Ve6Q0YQDPSUMV4yABfuP0eriSwBvwKFpx-mtKQv9iQ7IPdJ6xlJLZF6bjXBmDHbG2eQVWnGmUzarDf8KnPfTJN0GseJZ4yVxW8eU1ZE8aBURgOUSGSskcU_s1EkPUwk-Wi1o0z9Holr3NsN7okfsACmyWqEka05HVFuq5ReU-LMTJ8-9HBytyxywl9tL1c5vvP5E8_xyLjW2LMGBtXfcTIO7_4-EfMxnOwZKd2WymzLBdsruKzY96G0M">
+<div class="flex-1">
+<p class="font-bold text-on-surface">Casio FX-991EX</p>
+<p class="text-on-surface-variant font-label-sm">₹900 • 45 Views</p>
+</div>
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary-container transition-colors active:scale-90" onclick="window.location.href='{{DATA:SCREEN:SCREEN_17}}'">edit</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors active:scale-90">delete</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Tabs/Categorization -->
+<div class="md:col-span-2 glass-card rounded-xl">
+<div class="flex border-b border-white/5">
+<button class="flex-1 py-4 font-bold text-primary-container border-b-2 border-primary-container">Saved Items</button>
+<button class="flex-1 py-4 font-medium text-on-surface-variant hover:text-on-surface transition-colors">Past Purchases</button>
+</div>
+<div class="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Saved Item 1 -->
+<div class="group desaturate-hover cursor-pointer active:scale-95 transition-transform">
+<div class="aspect-square rounded-lg overflow-hidden mb-3 border border-white/5">
+<img class="w-full h-full object-cover" data-alt="A pair of clean, high-end white sneakers presented in a cinematic, minimalist setting. Subtle shadows and sharp lighting create a premium streetwear aesthetic. The background is a deep charcoal grey with soft atmospheric gradients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwW05CNnQC7ocTw0PQ5KAec8jwmDq2sUGUMe7d_kkWyueHw9xYXnNlNxQUDfDMzvM5oxqdjPIvQlBYaAfLR1NmiP_BHaP5Qamjvi-5c3A_kGN5bf5MreWLikIjbxLD9tmjsz3P8KDWX_IY5J7QuB3uWoJfytfhqMoQo3vwUtN4IWSJ6QJdKY_t8_P1nFNt4utlD5EMqdY8up3Tn843E5_nJe6HJzW8HEmpiBeGrlOYYKjUUP6yA7HaOnK-QiUXjkuvgNNk9KpF1s8">
+</div>
+<p class="font-bold text-on-surface truncate">White Sneakers</p>
+<p class="text-primary-container font-label-sm">₹1,200</p>
+</div>
+<!-- Saved Item 2 -->
+<div class="group desaturate-hover cursor-pointer active:scale-95 transition-transform">
+<div class="aspect-square rounded-lg overflow-hidden mb-3 border border-white/5">
+<img class="w-full h-full object-cover" data-alt="A high-performance gaming mechanical keyboard with vibrant RGB lighting under keycaps. The photograph uses a shallow depth of field, focusing on the texture of the keys. The lighting is moody and cybernetic with dark blue and magenta tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYgZjOZmd3vCPzBf1cJEvyL9XEAzt0VKMEsXVIHd2hPBGa8JsIBZy5LqMfNi7ohEhWY7n57gY01cDixxFvh984MbrKmtr1W4MQyq7m7nCaFyzYtEQderZ_fUoTbiJtvDXI0ufOjXTjUCD8_wVzGPziViaZi0k7nqBAHUT_A6CCTHd1zPVcbuili2asa-1uOYvv7rEj_RVlSMxPQ7EeI8KVfVW21cxH4jXiNYA5vsyTM6BjR-XtWChSm2UIzJbx5o9smpYejKIymwg">
+</div>
+<p class="font-bold text-on-surface truncate">Mech Keyboard</p>
+<p class="text-primary-container font-label-sm">₹2,500</p>
+</div>
+<!-- Saved Item 3 -->
+<div class="group desaturate-hover cursor-pointer active:scale-95 transition-transform">
+<div class="aspect-square rounded-lg overflow-hidden mb-3 border border-white/5">
+<img class="w-full h-full object-cover" data-alt="Modern black noise-canceling headphones resting on a glass surface. The image features high-contrast lighting that highlights the smooth matte finish and leather ear pads. Dark, elegant tech vibes with a focused composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlQfS0u6NGncCZdKb5qa9as1mlh8hGbuVny9SVn5gHlvKGltkIwDa56TzjNYSfDL5qxJGN5aX88elHpk1aW3s3Q5cQRp8oMxtdDef-0C2CaSUruVqe_ibGnkIbGQ1finJs4QWYw7-oO1nHUQ1ZnRhV81W23wel0TcKTcCHe8X77yqMHRpjZPn4NqK1X9oMaGUEx47mW88HYhPPuXnl0OE99BehNZudGlaXh1KIBHHfSjTE-ovcW6Ap8MFBc17r3MKRY_534c5tVRQ">
+</div>
+<p class="font-bold text-on-surface truncate">Sony WH-1000XM4</p>
+<p class="text-primary-container font-label-sm">₹15,000</p>
+</div>
+<!-- Saved Item 4 (Explore More) -->
+<div class="group desaturate-hover cursor-pointer active:scale-95 transition-transform" onclick="window.location.href='{{DATA:SCREEN:SCREEN_19}}'">
+<div class="aspect-square rounded-lg overflow-hidden mb-3 border border-white/5 flex items-center justify-center bg-surface-container-high border-dashed border-white/20 group-hover:border-primary-container/40 transition-colors">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary-container transition-colors">add</span>
+</div>
+<p class="font-bold text-on-surface-variant group-hover:text-primary-container transition-colors truncate">Explore More</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Timeline -->
+<section class="mt-gutter">
+<h2 class="font-headline-lg text-headline-lg mb-8">Recent Activity</h2>
+<div class="glass-card rounded-xl p-8 space-y-8 relative">
+<div class="absolute left-10 top-12 bottom-12 w-[1px] bg-white/5"></div>
+<!-- Activity Item 1 -->
+<div class="flex gap-6 relative">
+<div class="w-5 h-5 rounded-full bg-primary-container mt-1.5 z-10 shadow-[0_0_10px_rgba(250,204,21,0.5)]"></div>
+<div>
+<p class="text-on-surface font-bold text-body-lg">Listed 'Lab Coat (L)' for sale</p>
+<p class="text-on-surface-variant font-label-sm mt-1">2 hours ago • Available in Academic Block</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-6 relative">
+<div class="w-5 h-5 rounded-full bg-secondary mt-1.5 z-10 shadow-[0_0_10px_rgba(78,222,163,0.5)]"></div>
+<div>
+<p class="text-on-surface font-bold text-body-lg">Bought 'Digital Design Notes'</p>
+<p class="text-on-surface-variant font-label-sm mt-1">Yesterday • Seller: Rohan S.</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-6 relative">
+<div class="w-5 h-5 rounded-full bg-surface-container-highest border border-white/20 mt-1.5 z-10"></div>
+<div>
+<p class="text-on-surface font-bold text-body-lg">Withdrew ₹1,500 to Wallet</p>
+<p class="text-on-surface-variant font-label-sm mt-1">3 days ago • Completed</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-white/5 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="font-headline-md text-headline-md text-primary-container font-extrabold cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_2}}'">BMSIT Bazaar</div>
+<p class="text-on-surface-variant font-label-md text-center md:text-left">© 2024 BMSIT Bazaar. Exclusive Student Marketplace.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-label-md hover:text-primary-container transition-opacity hover:opacity-80" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary-container transition-opacity hover:opacity-80" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary-container transition-opacity hover:opacity-80" href="#">Campus Safety</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary-container transition-opacity hover:opacity-80" href="#">Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+
+
+```</body></html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Explore Marketplace | BMSIT Bazaar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#ffe083",
+                      "on-primary-fixed": "#231b00",
+                      "tertiary-container": "#33e4ff",
+                      "outline-variant": "#4d4632",
+                      "on-secondary-container": "#00311f",
+                      "on-error": "#690005",
+                      "on-primary": "#3c2f00",
+                      "surface-container-low": "#1c1b1d",
+                      "surface-container-highest": "#353437",
+                      "border-low-light": "rgba(255, 255, 255, 0.05)",
+                      "primary-fixed-dim": "#eec200",
+                      "background-accent": "#1e1b4b",
+                      "secondary-container": "#00a572",
+                      "secondary": "#4edea3",
+                      "neon-yellow-glow": "rgba(250, 204, 21, 0.3)",
+                      "secondary-fixed-dim": "#4edea3",
+                      "error-container": "#93000a",
+                      "surface-container-high": "#2a2a2c",
+                      "on-secondary-fixed": "#002113",
+                      "outline": "#9a9078",
+                      "inverse-primary": "#735c00",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#d1c6ab",
+                      "on-tertiary-fixed-variant": "#004e59",
+                      "on-surface": "#e5e1e4",
+                      "surface-tint": "#eec200",
+                      "on-tertiary-container": "#006270",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed": "#6ffbbe",
+                      "inverse-surface": "#e5e1e4",
+                      "surface-bright": "#39393b",
+                      "on-primary-container": "#6c5700",
+                      "on-tertiary-fixed": "#001f25",
+                      "on-primary-fixed-variant": "#574500",
+                      "tertiary": "#c7f5ff",
+                      "surface-variant": "#353437",
+                      "on-secondary": "#003824",
+                      "background": "#131315",
+                      "primary": "#ffecb9",
+                      "on-secondary-fixed-variant": "#005236",
+                      "primary-container": "#facc15",
+                      "surface-container-lowest": "#0e0e10",
+                      "tertiary-fixed": "#a0efff",
+                      "surface": "#131315",
+                      "inverse-on-surface": "#313032",
+                      "surface-dim": "#131315",
+                      "surface-container": "#201f22",
+                      "surface-base": "#18181b",
+                      "on-tertiary": "#00363e",
+                      "tertiary-fixed-dim": "#15daf4",
+                      "on-background": "#e5e1e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Syne"],
+                      "label-md": ["Outfit"],
+                      "label-sm": ["Outfit"],
+                      "display-lg": ["Syne"],
+                      "body-md": ["Outfit"],
+                      "headline-lg-mobile": ["Syne"],
+                      "headline-md": ["Syne"],
+                      "body-lg": ["Outfit"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #09090b;
+            color: #e5e1e4;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow:hover {
+            box-shadow: 0px 0px 20px rgba(250, 204, 21, 0.3);
+        }
+        .atmospheric-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+        }
+        .orb-1 { width: 400px; height: 400px; background: #1e1b4b; top: -100px; left: -100px; }
+        .orb-2 { width: 500px; height: 500px; background: #facc15; bottom: -200px; right: -100px; }
+        
+        .ping-indicator {
+            position: relative;
+            display: inline-flex;
+            width: 8px;
+            height: 8px;
+            background-color: #4edea3;
+            border-radius: 50%;
+        }
+        .ping-indicator::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #4edea3;
+            border-radius: 50%;
+            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        @keyframes ping {
+            75%, 100% { transform: scale(2.5); opacity: 0; }
+        }
+        .product-card-img {
+            filter: saturate(0.4);
+            transition: filter 0.3s ease;
+        }
+        .product-card:hover .product-card-img {
+            filter: saturate(1.1);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Atmospheric Background Elements -->
+<div class="atmospheric-orb orb-1"></div>
+<div class="atmospheric-orb orb-2"></div>
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/5">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-extrabold text-primary-container tracking-tighter" href="{{DATA:SCREEN:SCREEN_2}}">BMSIT Bazaar</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary-container font-bold border-b-2 border-primary-container pb-1 font-body-md text-body-md" href="#">Explore</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-200 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_12}}">Sell</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-200 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_7}}">Messages</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-container transition-colors duration-200 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_3}}">Activity</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="material-symbols-outlined text-on-surface-variant hover:text-primary-container transition-transform active:scale-95" href="{{DATA:SCREEN:SCREEN_10}}">shopping_cart</a>
+<a class="material-symbols-outlined text-on-surface-variant hover:text-primary-container transition-transform active:scale-95" href="{{DATA:SCREEN:SCREEN_3}}">account_circle</a>
+<button class="md:hidden material-symbols-outlined text-on-surface-variant" data-icon="menu">menu</button>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<!-- Search and Global Filter Bar -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row gap-gutter items-stretch">
+<div class="flex-1 relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary-container transition-colors">search</span>
+<input class="w-full bg-[#09090b] border border-white/10 rounded-lg py-4 pl-12 pr-4 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all outline-none font-body-md text-body-md" placeholder="Search tech, books, or gear..." type="text">
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 glass-panel px-6 py-4 rounded-lg hover:border-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span class="font-label-md text-label-md">Filters</span>
+</button>
+<a class="flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-4 rounded-lg font-headline-md text-headline-md font-bold neon-glow transition-all active:scale-95" href="{{DATA:SCREEN:SCREEN_12}}"><span class="material-symbols-outlined" data-icon="add_circle">add_circle</span><span class="hidden md:block">Post Listing</span></a>
+</div>
+</div>
+</section>
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Navigation -->
+<aside class="w-full md:w-64 shrink-0 space-y-8">
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant mb-4">Categories</h3>
+<ul class="space-y-2">
+<li class="">
+<button class="w-full flex items-center justify-between p-3 rounded-lg bg-primary-container/10 text-primary-container border border-primary-container/20 group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="devices">devices</span>
+<span class="font-body-md text-body-md font-semibold">Electronics</span>
+</div>
+<span class="bg-primary-container text-on-primary-container text-[10px] px-1.5 py-0.5 rounded-full">124</span>
+</button>
+</li>
+<li class="">
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 text-on-surface-variant hover:text-on-surface transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-body-md text-body-md">Books &amp; Study</span>
+</div>
+<span class="text-[10px] opacity-40 group-hover:opacity-100 transition-opacity">82</span>
+</button>
+</li>
+<li class="">
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 text-on-surface-variant hover:text-on-surface transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+<span class="font-body-md text-body-md">Lab Equipment</span>
+</div>
+<span class="text-[10px] opacity-40 group-hover:opacity-100 transition-opacity">19</span>
+</button>
+</li>
+<li class="">
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-white/5 text-on-surface-variant hover:text-on-surface transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="checkroom">checkroom</span>
+<span class="font-body-md text-body-md">Merch &amp; Style</span>
+</div>
+<span class="text-[10px] opacity-40 group-hover:opacity-100 transition-opacity">45</span>
+</button>
+</li>
+</ul>
+</div>
+<div class="p-6 glass-panel rounded-xl">
+<h4 class="font-label-md text-label-md text-primary-container mb-2">Student Hub Tip</h4>
+<p class="text-label-sm text-on-surface-variant leading-relaxed">
+                        Verify your .edu email to unlock premium "Fast-Track" shipping across campus.
+                    </p>
+<button class="mt-4 text-secondary font-label-md text-label-md flex items-center gap-1 hover:underline">
+                        Learn more <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Grid -->
+<section class="flex-1">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Listings</h2>
+<div class="flex items-center gap-2 mt-1">
+<div class="ping-indicator"></div>
+<span class="font-label-sm text-label-sm text-secondary">24 listings added in the last hour</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sort by:</span>
+<select class="bg-transparent border-none text-on-surface font-label-md text-label-md focus:ring-0 cursor-pointer">
+<option>Newest First</option>
+<option>Price: Low to High</option>
+<option>Most Popular</option>
+</select>
+</div>
+</div>
+<!-- Bento-ish Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="product-card group flex flex-col glass-panel rounded-xl overflow-hidden hover:border-primary-container/30 transition-all cursor-pointer">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img class="product-card-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A premium pair of high-performance wireless noise-canceling headphones resting on a dark, minimalist tech desk. The scene is lit with moody, cyber-bazaar neon yellow and deep violet accents, creating a futuristic commerce atmosphere. Soft cinematic blur surrounds the headphones, emphasizing their sleek geometric design and premium texture. The overall aesthetic is dark mode, exclusive, and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaqisBMWHr3dIpkyzkoi1a_q7kvr7JFqvtk7Syk-4fT61t3zqZ0nfBE0fqbXFZjyyJiIK_Ngw1h9OsqEaFuQ9k--0J_w3ucL6PO8-q7JY080qB-1R8vE1iFc1JHhXrob08KuD1sIlXbwClz7hIYOrmjdtvVAqNeZhyC4hu0ITD-P4QWdKp0bCr6NzwLpn4laJy-5uMzbBofyzkyCBNPpUV_x7pUchDmCT6wSiSe4Z7ABVcZzwCTkegqCRemALuRCRm3zuKfi2p_xk">
+<div class="absolute top-4 right-4 bg-secondary-container/90 backdrop-blur-md text-on-secondary-container px-3 py-1 rounded font-label-md text-label-md">
+                                Fresh
+                            </div>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-body-lg font-bold text-on-surface group-hover:text-primary-container transition-colors">Sony WH-1000XM5</h4>
+<span class="font-headline-md text-body-lg text-primary-container">₹18,500</span>
+</div>
+<p class="text-label-sm text-on-surface-variant line-clamp-2">Perfect condition, used for one semester. Comes with original case and cables.</p>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-white/5 pt-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center border border-white/10 overflow-hidden">
+<img data-alt="A professional headshot of a young male college student with a friendly expression. He is wearing modern streetwear against a dark, blurred background with subtle yellow bokeh lights. The lighting is crisp and energetic, reflecting a high-end tech marketplace profile avatar aesthetic. The portrait is centered and cropped in a circular frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC79r10I4en9Pv_Kfjaz8VmJuLo9AS8_4dapAaIevEuXIwEwBi_zjtRSjNoCOfmmIF3M74U41EtyUKqEFfszA2PRLzRdTHWW_pLzQImLq6TGcmb1cHdHu9p2ijc3bhNqLIYOhzi1MmyqNVwXg96PEyfgmp48omSJKDIxsYEDOM5qCYSZsRTZ46CXRbc-WOK4rbuswWlelZMEpkN1h6uHbbGWytChTqUgkdpyas5ssDY4zJOmVHGFWo8w7ZEqFLFk51yYnClZ_IpWOk">
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Arjun K. • 4th Sem</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors" data-icon="favorite">favorite</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card group flex flex-col glass-panel rounded-xl overflow-hidden hover:border-primary-container/30 transition-all cursor-pointer">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img class="product-card-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A collection of hardcover engineering textbooks stacked neatly on a dark surface, illuminated by a sharp, focused beam of neon yellow light. The background is a pitch-black study area with a subtle haze, giving it a sophisticated, cinematic cyberpunk library feel. The textures of the book spines are detailed and crisp, showcasing a range of technical subjects. The mood is studious yet edgy and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC0XG0N7UB5ehsYvsBCr4v8Lv96CNlqQhf6DA-qqLONgSpO3IQnr9gqw51r_ecdFOYGOx86c4-j9TD_3dYLvyCrgwGx3LelamrKclzsy7J6S_m-awgnfKtIHnwHw52HhXmCnWzL1rq9jDkPFq4UxZSI1phhrsiPJnkuzNZ8O1ZLFmHcY3dJQh7y3lPH8wcxxhbXaan02FMNmplQIxoApkUya8LyIs1h6POIXdAQKkEtJc4Xq4in-TDnpOn0L7DlLZIYxImRVLjTDo">
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-body-lg font-bold text-on-surface group-hover:text-primary-container transition-colors">Core CS Bundle</h4>
+<span class="font-headline-md text-body-lg text-primary-container">₹2,200</span>
+</div>
+<p class="text-label-sm text-on-surface-variant line-clamp-2">Algorithms, OS, and DBMS textbooks. No markings, clean pages.</p>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-white/5 pt-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/20 flex items-center justify-center border border-white/10">
+<span class="font-label-sm text-label-sm text-tertiary">SP</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sneha P. • 6th Sem</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors" data-icon="favorite">favorite</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card group flex flex-col glass-panel rounded-xl overflow-hidden hover:border-primary-container/30 transition-all cursor-pointer">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img class="product-card-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-end mechanical gaming keyboard with vibrant RGB lighting glowing in emerald green and yellow hues. The keyboard is placed on a dark, reflective gaming desk in a dimly lit room. The shot is a close-up macro, capturing the precision of the keycaps and the atmospheric glow that illuminates the surrounding air. The visual style is sleek, aggressive, and perfectly suited for an exclusive tech marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlc4NA7ZDJkKW0gpwuhlSiSZb7nRSXR-ve8_MwMl0FHTmOsl1E4ME7zSnGnOlYlt7mxY3ISH-UmUo9AdzivQz7ZmjTtMJKlffaVpwoQ_PGdr1H2Kat92VRL1RPukaEk1LXpA60iKqTp6R6blEF0VMSekCwrFjBOSJvmBqNQvwEeLm4pqsrCyT8kIEK6YrPqusne1s9ALQyOBSt5zB-sUzeVduiOhRhnhSUz8KVhLdtaupPC9fuy5RyjEsg7z4A2WjMazHk37P7k5k">
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-body-lg font-bold text-on-surface group-hover:text-primary-container transition-colors">Keychron K2 V2</h4>
+<span class="font-headline-md text-body-lg text-primary-container">₹4,500</span>
+</div>
+<p class="text-label-sm text-on-surface-variant line-clamp-2">Mechanical keyboard with Gateron Brown switches. Bluetooth works perfectly.</p>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-white/5 pt-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center border border-white/10 overflow-hidden">
+<img data-alt="A vibrant and energetic profile portrait of a female student with a confident smile. She is set against a dark architectural background with subtle atmospheric yellow lighting. The image captures a clean, professional yet youthful vibe, emphasizing the person's identity within a futuristic digital marketplace. The composition is focused on the face with a shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChtHgdtL21Xs0hB1sCp1ChIaZRomLEzUanZmIaqXQJUkAPUBhIUiu9vVKjjNwG0uME-85tLSjAP5tzZyxQzQCFzaRX9OaH26XCxNC54VkaH8pt2ALxzvdA4GC4cIKnqKRm-UGGT4d2ynhuzK6exoULwnbV5HEB2880BQRKVlm3pMfYRxFQcwsYrS29KVgatuTgXE8MaNSCmWFRlVrk9LHsKuwikauvDJBKySlBs4GCUzjGaVJ-7fEm_xa9lQBT07XAQn1Lp2TPkuk">
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Riya M. • 2nd Sem</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors" data-icon="favorite">favorite</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="product-card group flex flex-col glass-panel rounded-xl overflow-hidden hover:border-primary-container/30 transition-all cursor-pointer">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img class="product-card-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek space-gray MacBook Pro sitting open on a modern workstation with a clean, dark aesthetic. The screen displays a colorful coding environment, casting a soft glow onto the minimalist surroundings. The lighting is dark and moody with sharp neon highlights, creating a premium 'pro' atmosphere. The image feels fast-paced and high-value, emphasizing the quality of tech available in the bazaar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuzJbdyQ66eNK4wWTj8PoPx5nRt4A6d_M5jnw8VU7KgN8GMnPntWj28it6Gt_GU2HH_je4DiZMEjz4SEYCKyZJhOruzOmJ5mvdJd4AqeOYOInyHTVs_9Yid-sxwvVVtSyZq4CZ0NdfcTBL-5NLmbGhpqtJKaaa37PzbWbOBEeua5DIX6JFTvxTyO9zrtzPVLoyCTjFSFGIykEq_z6UI2xVrKPMAIb_z5EoWNz5rYrvunIDx43D5EMEPH0fS3mGG_EbifpS8PGU_x0">
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-body-lg font-bold text-on-surface group-hover:text-primary-container transition-colors">MacBook Pro M1</h4>
+<span class="font-headline-md text-body-lg text-primary-container">₹65,000</span>
+</div>
+<p class="text-label-sm text-on-surface-variant line-clamp-2">8GB RAM, 256GB SSD. Battery health 92%. Perfect for CS students.</p>
+</div>
+<div class="mt-4 flex items-center justify-between border-t border-white/5 pt-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center border border-white/10">
+<span class="font-label-sm text-label-sm text-primary">VK</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Varun K. • 8th Sem</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors" data-icon="favorite">favorite</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-12 flex justify-center">
+<button class="px-8 py-3 glass-panel rounded-full text-on-surface font-label-md text-label-md hover:border-primary-container transition-all active:scale-95">
+                        Load More Results
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-white/5 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="font-headline-md text-headline-md text-primary-container font-extrabold tracking-tighter cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_2}}'">BMSIT Bazaar</div>
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 BMSIT Bazaar. Exclusive Student Marketplace.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary-container transition-opacity hover:opacity-80 font-label-md text-label-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-opacity hover:opacity-80 font-label-md text-label-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-opacity hover:opacity-80 font-label-md text-label-md" href="#">Campus Safety</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-opacity hover:opacity-80 font-label-md text-label-md" href="#">Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for search focus
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchIcon = document.querySelector('.material-symbols-outlined[data-icon="search"]');
+        
+        if (searchInput && searchIcon) {
+            searchInput.addEventListener('focus', () => {
+                searchIcon.classList.add('scale-110');
+                searchInput.parentElement.classList.add('shadow-[0_0_15px_rgba(250,204,21,0.1)]');
+            });
+
+            searchInput.addEventListener('blur', () => {
+                searchIcon.classList.remove('scale-110');
+                searchInput.parentElement.classList.remove('shadow-[0_0_15px_rgba(250,204,21,0.1)]');
+            });
+        }
+
+        // Hover effect for product cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

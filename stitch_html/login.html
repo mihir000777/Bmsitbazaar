@@ -1,0 +1,244 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Login | BMSIT Bazaar</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e10",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#004e59",
+                        "surface-container-high": "#2a2a2c",
+                        "border-low-light": "rgba(255, 255, 255, 0.05)",
+                        "secondary": "#4edea3",
+                        "background": "#131315",
+                        "primary": "#ffecb9",
+                        "outline": "#9a9078",
+                        "on-tertiary": "#00363e",
+                        "surface-container-highest": "#353437",
+                        "surface-container": "#201f22",
+                        "surface-container-low": "#1c1b1d",
+                        "surface-dim": "#131315",
+                        "inverse-surface": "#e5e1e4",
+                        "on-secondary-container": "#00311f",
+                        "on-tertiary-container": "#006270",
+                        "on-primary-fixed": "#231b00",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-primary": "#735c00",
+                        "surface-tint": "#eec200",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-bright": "#39393b",
+                        "tertiary-fixed": "#a0efff",
+                        "tertiary": "#c7f5ff",
+                        "outline-variant": "#4d4632",
+                        "on-primary-container": "#6c5700",
+                        "on-primary": "#3c2f00",
+                        "background-accent": "#1e1b4b",
+                        "surface-variant": "#353437",
+                        "primary-container": "#facc15",
+                        "surface-base": "#18181b",
+                        "secondary-container": "#00a572",
+                        "secondary-fixed": "#6ffbbe",
+                        "secondary-fixed-dim": "#4edea3",
+                        "neon-yellow-glow": "rgba(250, 204, 21, 0.4)",
+                        "on-background": "#e5e1e4",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#d1c6ab",
+                        "on-surface": "#e5e1e4",
+                        "inverse-on-surface": "#313032",
+                        "tertiary-container": "#33e4ff",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#ffe083",
+                        "tertiary-fixed-dim": "#15daf4",
+                        "surface": "#131315",
+                        "on-primary-fixed-variant": "#574500",
+                        "primary-fixed-dim": "#eec200",
+                        "on-tertiary-fixed": "#001f25",
+                        "on-secondary": "#003824",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "display-lg": ["Syne"],
+                        "body-md": ["Outfit"],
+                        "headline-lg": ["Syne"],
+                        "body-lg": ["Outfit"],
+                        "headline-md": ["Syne"],
+                        "headline-lg-mobile": ["Syne"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen overflow-x-hidden relative selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Orbs -->
+<div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary-container/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary-container/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
+<div class="relative z-10 min-h-screen flex flex-col bg-grid-pattern">
+<!-- Header / Logo Only (Navigation Suppressed as per Linear/Transactional Rule) -->
+<header class="w-full py-8 px-margin-mobile md:px-margin-desktop flex justify-center">
+<a class="text-headline-md font-syle font-bold text-primary italic tracking-tighter hover:scale-105 transition-transform" href="{{DATA:SCREEN:SCREEN_20}}">
+                BMSIT Bazaar
+            </a>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center px-margin-mobile">
+<div class="w-full max-w-[480px] animate-in fade-in slide-in-from-bottom-4 duration-700">
+<!-- Login Card -->
+<div class="glass-panel p-8 md:p-10 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+<div class="text-center mb-10">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Welcome Back</h1>
+<p class="font-body-md text-on-surface-variant">The campus marketplace is waiting for you.</p>
+</div>
+<form action="#" class="space-y-6" onsubmit="event.preventDefault(); window.location.href='{{DATA:SCREEN:SCREEN_20}}'">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-1" for="email">Institute Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">alternate_email</span>
+<input class="w-full bg-surface-container-lowest border border-border-low-light focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/50 transition-all outline-none" id="email" placeholder="username@bmsit.in" required="" type="email">
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center ml-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<a class="text-label-md font-label-md text-primary-container hover:underline decoration-2 underline-offset-4" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">lock</span>
+<input class="w-full bg-surface-container-lowest border border-border-low-light focus:border-primary-container focus:ring-1 focus:ring-primary-container rounded-xl py-4 pl-12 pr-12 text-on-surface placeholder:text-outline/50 transition-all outline-none" id="password" placeholder="••••••••" required="" type="password">
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full bg-primary-container text-on-primary-container font-syne font-bold text-body-lg py-4 rounded-xl glow-hover active:scale-[0.98] transition-all flex justify-center items-center gap-2 group" type="submit">
+                            Login Securely
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- Divider -->
+<div class="relative py-4 flex items-center">
+<div class="flex-grow border-t border-border-low-light"></div>
+<span class="px-4 text-label-sm font-label-sm text-outline/40 uppercase tracking-widest">or continue with</span>
+<div class="flex-grow border-t border-border-low-light"></div>
+</div>
+<!-- Social Login -->
+<button class="w-full bg-white/5 border border-border-low-light text-on-surface font-label-md text-label-md py-4 rounded-xl hover:bg-white/10 transition-all flex justify-center items-center gap-3" type="button">
+<svg class="w-5 h-5" viewBox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="currentColor"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="currentColor"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 12-4.53z" fill="currentColor"></path>
+</svg>
+                            Login with Google
+                        </button>
+</form>
+<!-- Footer Link -->
+<div class="mt-8 text-center">
+<p class="font-body-md text-on-surface-variant">
+                            New to the bazaar? 
+                            <a class="text-secondary font-bold hover:underline decoration-2 underline-offset-4 ml-1" href="{{DATA:SCREEN:SCREEN_6}}">Sign Up</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full border-t border-border-low-light bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center py-12 px-margin-desktop max-w-container-max mx-auto space-y-6 md:space-y-0">
+<div class="flex flex-col items-center md:items-start space-y-2">
+<span class="font-syne text-headline-md font-extrabold text-primary">BMSIT Bazaar</span>
+<p class="font-outfit text-label-sm text-on-surface-variant">© 2024 BMSIT Bazaar. For students, by students.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="font-outfit text-label-sm text-on-surface-variant hover:text-primary transition-colors focus:underline decoration-primary decoration-2 underline-offset-4" href="#">Campus Map</a>
+<a class="font-outfit text-label-sm text-on-surface-variant hover:text-primary transition-colors focus:underline decoration-primary decoration-2 underline-offset-4" href="#">Hostel Guidelines</a>
+<a class="font-outfit text-label-sm text-on-surface-variant hover:text-primary transition-colors focus:underline decoration-primary decoration-2 underline-offset-4" href="#">Contact Support</a>
+<a class="font-outfit text-label-sm text-on-surface-variant hover:text-primary transition-colors focus:underline decoration-primary decoration-2 underline-offset-4" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</div>
+<!-- Atmospheric Micro-interactions -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            // Subtly shift background orbs based on mouse
+            const orbs = document.querySelectorAll('.blur-[120px], .blur-[100px]');
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 20;
+                orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+
+        // Simple form focus effect
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.01]');
+                input.parentElement.parentElement.style.transition = 'transform 0.3s ease';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004e59",
+                    "primary": "#ffecb9",
+                    "inverse-primary": "#735c00",
+                    "neon-yellow-glow": "rgba(250, 204, 21, 0.4)",
+                    "secondary-container": "#00a572",
+                    "on-tertiary-fixed": "#001f25",
+                    "surface-container-lowest": "#0e0e10",
+                    "tertiary": "#c7f5ff",
+                    "inverse-surface": "#e5e1e4",
+                    "outline": "#9a9078",
+                    "on-tertiary": "#00363e",
+                    "primary-container": "#facc15",
+                    "on-secondary-fixed": "#002113",
+                    "border-low-light": "rgba(255, 255, 255, 0.05)",
+                    "background-accent": "#1e1b4b",
+                    "background": "#131315",
+                    "on-primary-fixed-variant": "#574500",
+                    "secondary-fixed": "#6ffbbe",
+                    "inverse-on-surface": "#313032",
+                    "primary-fixed": "#ffe083",
+                    "surface-container-highest": "#353437",
+                    "tertiary-container": "#33e4ff",
+                    "tertiary-fixed-dim": "#15daf4",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-primary-container": "#6c5700",
+                    "surface-container": "#201f22",
+                    "on-tertiary-container": "#006270",
+                    "surface-variant": "#353437",
+                    "surface": "#131315",
+                    "on-background": "#e5e1e4",
+                    "surface-dim": "#131315",
+                    "surface-base": "#18181b",
+                    "outline-variant": "#4d4632",
+                    "secondary": "#4edea3",
+                    "on-surface-variant": "#d1c6ab",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#eec200",
+                    "tertiary-fixed": "#a0efff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-surface": "#e5e1e4",
+                    "on-secondary-container": "#00311f",
+                    "surface-bright": "#39393b",
+                    "surface-container-high": "#2a2a2c",
+                    "on-primary": "#3c2f00",
+                    "primary-fixed-dim": "#eec200",
+                    "on-secondary": "#003824",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#231b00",
+                    "surface-container-low": "#1c1b1d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-md": ["Syne"],
+                    "body-lg": ["Outfit"],
+                    "headline-lg": ["Syne"],
+                    "display-lg": ["Syne"],
+                    "headline-lg-mobile": ["Syne"],
+                    "body-md": ["Outfit"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #09090b;
+            color: #e5e1e4;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+        }
+        .ping-animation {
+            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        @keyframes ping {
+            75%, 100% { transform: scale(2); opacity: 0; }
+        }
+        .bg-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+        }
+        .desaturate {
+            filter: grayscale(100%) brightness(0.8);
+            transition: filter 0.3s ease;
+        }
+        .desaturate:hover {
+            filter: grayscale(0%) brightness(1);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- Background Atmospheric Elements -->
+<div class="bg-orb bg-primary top-[-200px] left-[-200px]"></div>
+<div class="bg-orb bg-secondary bottom-[-200px] right-[-200px]"></div>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20">
+<div class="font-headline-lg text-headline-lg font-bold text-primary">BMSIT Bazaar</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Home</a>
+<a class="text-primary font-bold transition-colors duration-300 font-label-md text-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Sell</a>
+<div class="flex items-center gap-4 ml-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">shopping_bag</span>
+<div class="w-10 h-10 rounded-full border border-primary/20 overflow-hidden">
+<img alt="User profile" data-alt="A professional close-up headshot of a young student with a friendly expression. The lighting is soft and cinematic, with subtle neon yellow rim lighting reflecting the brand's aesthetic. The background is a dark, out-of-focus tech environment, maintaining the premium dark mode theme of the marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzw_spYOOkH8h_bdGuR11DJ_Bx_ggrDp8QcN4K5WjmRJyka0-tGTZewwrxedapG1L1-vnnlZ_mYpxrboH3DmLKuQeqh5ZE6tXM2epoi1aX9m-phCBiEHqeRr8YTWZQFW3LJnQDTTj_GodzN3AQWbd2XwIAkd_PPcI2LIwxPEu93EQQuQC8QJKsrDRXNFP-KQ0G3XOTqNiUuxHaLkUw7TRdxEG4B110qswZSA_6BE44aNvjQiOOoqsYAXMHIA7C9NDRP-BlmhzUbq8">
+</div>
+</div>
+</div>
+<div class="md:hidden flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-8 text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Electronics</span>
+</nav>
+<!-- Page Header -->
+<header class="mb-10">
+<h1 class="font-headline-lg text-headline-lg md:text-display-lg text-on-surface mb-2">High-Performance Electronics</h1>
+<p class="text-on-surface-variant max-w-2xl">Upgrade your study game with verified gear from fellow BMSIT students. From workstations to exam essentials.</p>
+</header>
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-64 flex-shrink-0">
+<div class="glass-panel p-6 rounded-xl sticky top-28 space-y-8">
+<div>
+<h3 class="font-label-md text-label-md text-primary mb-4">Condition</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 border border-outline rounded-sm flex items-center justify-center group-hover:border-primary transition-colors">
+<div class="w-3 h-3 bg-primary-container rounded-sm hidden check-mark"></div>
+</div>
+<span class="text-on-surface-variant group-hover:text-on-surface">Brand New</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 border border-primary rounded-sm flex items-center justify-center">
+<div class="w-3 h-3 bg-primary-container rounded-sm"></div>
+</div>
+<span class="text-on-surface">Like New</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-5 h-5 border border-outline rounded-sm flex items-center justify-center group-hover:border-primary transition-colors"></div>
+<span class="text-on-surface-variant group-hover:text-on-surface">Used</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary mb-4">Price Range</h3>
+<div class="px-2">
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container" type="range">
+<div class="flex justify-between mt-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>₹500</span>
+<span>₹1,00,000+</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary mb-4">Year of Study</h3>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-3 glass-panel rounded-lg text-label-sm font-label-sm hover:border-primary transition-all">1st Year</button>
+<button class="py-2 px-3 glass-panel rounded-lg text-label-sm font-label-sm border-primary/40 bg-primary/10 text-primary">2nd Year</button>
+<button class="py-2 px-3 glass-panel rounded-lg text-label-sm font-label-sm hover:border-primary transition-all">3rd Year</button>
+<button class="py-2 px-3 glass-panel rounded-lg text-label-sm font-label-sm hover:border-primary transition-all">4th Year</button>
+</div>
+</div>
+<button class="w-full py-4 bg-primary-container text-on-primary font-bold rounded-lg neon-glow active:scale-95 transition-all">
+                        Apply Filters
+                    </button>
+</div>
+</aside>
+<!-- Product Grid -->
+<section class="flex-grow">
+<div class="flex justify-between items-center mb-6">
+<span class="text-on-surface-variant font-label-md">Showing 24 listings</span>
+<div class="flex items-center gap-2 text-on-surface cursor-pointer">
+<span class="font-label-md">Sort by: Popular</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Laptop -->
+<div class="glass-panel group rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-500">
+<div class="relative h-48 overflow-hidden">
+<img alt="MacBook Air" class="w-full h-full object-cover desaturate group-hover:scale-110 transition-transform duration-700" data-alt="A sleek MacBook Air positioned on a dark, reflective desk with neon yellow ambient lighting. The atmosphere is tech-forward and clean, with a shallow depth of field focusing on the laptop's metallic finish. The overall aesthetic is premium dark mode with sharp, futuristic edges and cool tones contrasted by warm yellow highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgPQlHIi8tB_iSpiHLPcKX4uvKovjQwa9pYXLsE0WLEzYH1EbJsuRnjsprHrhUtPnvkPWcrmWZcTArOiWeRvNYfFgl7O0XLWWVWZTHPg8kK7D4taTraOtLAbHcuZdMtoYN1BaniXOhC26vmYYg_mvZBrse7NzRa7pKccXG-yKFMx42lfPmJfTtQoLCQd-VhSskFjufrMkFAsy2skTOMChIUM0USe2By9s-tniH-_aEqxRx93Q14lAigmADHOD-CW28PFESSnlT-UM">
+<div class="absolute top-3 left-3 px-3 py-1 bg-secondary text-on-secondary rounded-sm font-label-sm text-[10px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-on-secondary rounded-full ping-animation"></span> LIVE
+                            </div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full glass-panel flex items-center justify-center hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[18px] text-on-surface truncate pr-2">MacBook Air M2</h3>
+<span class="text-primary font-bold">₹72,000</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm mb-4 line-clamp-1">8GB RAM, 256GB SSD. Perfect for CS students. Minimal usage.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest"></div>
+<span class="text-label-sm text-on-surface-variant">Rahul, 3rd Year</span>
+</div>
+<span class="text-[10px] text-outline font-label-sm">2H AGO</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Headphones -->
+<div class="glass-panel group rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-500">
+<div class="relative h-48 overflow-hidden">
+<img alt="Sony Headphones" class="w-full h-full object-cover desaturate group-hover:scale-110 transition-transform duration-700" data-alt="High-end noise-canceling headphones resting on a minimalist dark surface. The lighting is moody with yellow neon accents creating dramatic highlights on the leather and plastic surfaces. The background is a clean, dark gradient, emphasizing the sleek, futuristic design of the audio gear within a premium marketplace context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRgt_OhNMpeinCld2SjrZhxFgbsXYL_ICPWFg0A_55lpwdWJYzRhpMozuI47Jv8D0ebpnkoAruEvxxtWxfq2lccari59ytbsYk4rYdBPM3IBxYmXrd5fC1GQ54oXB67u5d_ITqz1TLaeHnTpYLhzRUw0Hyl-PfOJ_-92TL-g19wztRR3l5tKJ_KcuHbUdVi86HbbQ-F5wm6A095srcfuQ9dIt3O5dFAlBRw5kxz4VORARPOu3XNq7ZTCXGdjb2gfLwqvyC5aWltvM">
+<div class="absolute top-3 left-3 px-3 py-1 bg-surface-container-highest text-on-surface rounded-sm font-label-sm text-[10px]">USED</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[18px] text-on-surface truncate pr-2">Sony WH-1000XM4</h3>
+<span class="text-primary font-bold">₹14,500</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm mb-4 line-clamp-1">Noise canceling is insane. Selling because I upgraded.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest"></div>
+<span class="text-label-sm text-on-surface-variant">Sneha, 4th Year</span>
+</div>
+<span class="text-[10px] text-outline font-label-sm">5H AGO</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Calculator -->
+<div class="glass-panel group rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-500">
+<div class="relative h-48 overflow-hidden">
+<img alt="Scientific Calculator" class="w-full h-full object-cover desaturate group-hover:scale-110 transition-transform duration-700" data-alt="A professional Casio scientific calculator displayed on a dark academic workspace. Subtle neon yellow lighting glints off the buttons and screen. The setting feels modern and focused, representing high-quality student equipment. The color palette is strictly dark grays and blacks with vibrant yellow highlights to maintain brand consistency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkEFljd_15DjvswiM5rp7_Qgip2F2Yz8ej33C5nnHaLxrhZdEtBirMMl8WJdpoIF_zp252MgXtjFdmEwV5ikht58-J75GAVaCIhblGOwz0nJHXd8-A7CrHQolO-1L8Nw8KEmUkQVycPxoz4_UnXPP1y6j-HmKBTo_gvw7onmPmugz_S6eRwlRTizsvi-sTtuopNKysEhs9YOCRQ_v6TmqXLOsTS3hxuejSa_wFdchr5eXPOp0OkB0d4zDgJWvluMN244o6p7o98tI">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[18px] text-on-surface truncate pr-2">Casio fx-991EX</h3>
+<span class="text-primary font-bold">₹800</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm mb-4 line-clamp-1">Classwiz edition. Mandatory for Civil/Mech. Like new.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest"></div>
+<span class="text-label-sm text-on-surface-variant">Arjun, 2nd Year</span>
+</div>
+<span class="text-[10px] text-outline font-label-sm">1D AGO</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Monitor -->
+<div class="glass-panel group rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-500">
+<div class="relative h-48 overflow-hidden">
+<img alt="Gaming Monitor" class="w-full h-full object-cover desaturate group-hover:scale-110 transition-transform duration-700" data-alt="A sharp 27-inch gaming monitor showing a vibrant neon interface, set against a dark, tech-oriented studio backdrop. Yellow light glows from behind the screen, creating a beautiful backlight effect. The image is crisp, modern, and perfectly aligned with a high-end student tech marketplace aesthetic, using a deep charcoal and neon yellow theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6ER8LyopGUdiRj9lielW2M1xTF284N9xjIzT0Gf3iQjlFuKagO_cRNItlM_kssBvRjHURn6-LOxpKdJZDzSEX47kyFA6L6KbVZbhmF64BfyBJpU4zSiZAHOFwxkaEdP8RUmglWiI6UBapXPVTwUAMD7lhaaqCqB7AD7N5Zan7vPl0KPQnU4_liO1fb2c8EPxPWNKwvTq4bLftlQ5ZFD1TG_Lvg_Mc4QsTGqvQaGG_LB0IlGtxaqcwEOLyvr9qjxJ4DHEadU-o6bU">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[18px] text-on-surface truncate pr-2">Samsung Odyssey G5</h3>
+<span class="text-primary font-bold">₹18,000</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm mb-4 line-clamp-1">144Hz, 1ms. Perfect for gaming and coding. No dead pixels.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest"></div>
+<span class="text-label-sm text-on-surface-variant">Karthik, 3rd Year</span>
+</div>
+<span class="text-[10px] text-outline font-label-sm">3D AGO</span>
+</div>
+</div>
+</div>
+<!-- Card 5: iPad -->
+<div class="glass-panel group rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-500">
+<div class="relative h-48 overflow-hidden">
+<img alt="iPad Pro" class="w-full h-full object-cover desaturate group-hover:scale-110 transition-transform duration-700" data-alt="An iPad Pro with an Apple Pencil resting on its screen, placed on a dark wooden surface. Soft, cinematic yellow lighting highlights the edges of the device. The composition is artistic and minimalist, reflecting a sophisticated tool for modern students. The dark mode theme is reinforced by deep shadows and high-contrast yellow accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoK5qIBfWO7KjQae-OscxeMwgMfie0DpubufLzUZD7fLYnaYQp1aqupYv4LR8nNaVSmzMXj4X7d4jYshttQAI5P6zxU3nxqqmCC4aSKU4AqVGQoybnj_dff9cF8yz9FTY-vQNBn1eRxYvN7IhCvNNxBybs83wcFcCu49LfRZtN9kREWwafYalkH_QpXmqm62CmRwZvOfQvKQKCpHRK8dT_9hIweN7t1qOWhjBXw5qE0_AIEBTNWDexokiHeg0dNQPLj07SvrNgCqk">
+<div class="absolute top-3 left-3 px-3 py-1 bg-secondary text-on-secondary rounded-sm font-label-sm text-[10px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-on-secondary rounded-full ping-animation"></span> LIVE
+                            </div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[18px] text-on-surface truncate pr-2">iPad Pro 11"</h3>
+<span class="text-primary font-bold">₹45,000</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm mb-4 line-clamp-1">Include Apple Pencil Gen 2. Best for digital note-taking.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest"></div>
+<span class="text-label-sm text-on-surface-variant">Priya, 1st Year</span>
+</div>
+<span class="text-[10px] text-outline font-label-sm">4D AGO</span>
+</div>
+</div>
+</div>
+<!-- Card 6: Power Bank -->
+<div class="glass-panel group rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-500">
+<div class="relative h-48 overflow-hidden">
+<img alt="Power Bank" class="w-full h-full object-cover desaturate group-hover:scale-110 transition-transform duration-700" data-alt="A rugged, high-capacity power bank displayed in a futuristic tech setting. The object is lit by sharp, linear yellow neon lights that define its texture and shape against a pitch-black background. The vibe is energetic and industrial, suggesting reliable power for long campus days. The premium tech aesthetic is achieved through high contrast and minimal clutter." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPID78sNGmuAP5xS2bwTTTK1PpP2Tnl_B8TDghpmYMzX4z-DSc6MQ_OkTHz4JJDfxuKHsgEGiNmXcUBjlUiI4JHR6Ax1Z1-KmVrLplVh6CqXAQ0nF38t4Q3vcQtsjgK7lya0BihTcoJJvy5SIcCd21ZHnLijdcTtFbqGTyW2XNjY8gsbqCdmHSBBwANWs4sS5ec_R17SLdAARamzE81b0pNQUOAytFijU_pl4NVAQUb5OKR33GOa5owxK0UitBQTaDQKvnpCu7dCA">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[18px] text-on-surface truncate pr-2">Mi 20000mAh Power Bank</h3>
+<span class="text-primary font-bold">₹1,200</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-sm mb-4 line-clamp-1">18W Fast Charge. Essential for those 8-to-5 campus days.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest"></div>
+<span class="text-label-sm text-on-surface-variant">Vikram, 2nd Year</span>
+</div>
+<span class="text-[10px] text-outline font-label-sm">1W AGO</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center items-center gap-4">
+<button class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="w-10 h-10 rounded-lg bg-primary-container text-on-primary font-bold flex items-center justify-center">1</span>
+<span class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:bg-white/5 cursor-pointer">2</span>
+<span class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:bg-white/5 cursor-pointer">3</span>
+<span class="text-on-surface-variant px-2">...</span>
+<span class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:bg-white/5 cursor-pointer">12</span>
+</div>
+<button class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-white/5 bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center gap-base px-margin-mobile md:px-margin-desktop py-gutter w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-primary font-bold">BMSIT Bazaar</div>
+<div class="flex gap-6 text-on-surface-variant font-body-md text-body-md">
+<a class="hover:text-primary underline decoration-primary/30 transition-opacity duration-200" href="#">Campus Map</a>
+<a class="hover:text-primary underline decoration-primary/30 transition-opacity duration-200" href="#">Hostel Rules</a>
+<a class="hover:text-primary underline decoration-primary/30 transition-opacity duration-200" href="#">Tech Support</a>
+<a class="hover:text-primary underline decoration-primary/30 transition-opacity duration-200" href="#">Privacy</a>
+</div>
+<div class="text-on-surface-variant font-body-md text-sm text-center md:text-right">
+                © 2024 BMSIT Bazaar. For students, by students.
+            </div>
+</div>
+</footer>
+<!-- Mobile Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container/60 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(250,204,21,0.1)] flex justify-around items-center py-4 md:hidden">
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center text-primary drop-shadow-[0_0_8px_rgba(250,204,21,0.4)] active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-[10px]">Explore</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[32px]">add_circle</span>
+<span class="font-label-md text-[10px]">Sell</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction for checkboxes
+        document.querySelectorAll('label.group').forEach(label => {
+            label.addEventListener('click', () => {
+                const mark = label.querySelector('.check-mark');
+                if(mark) mark.classList.toggle('hidden');
+            });
+        });
+
+        // Background Orb Mouse Move Effect
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.bg-orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            orbs[0].style.transform = `translate(${x * 50}px, ${y * 50}px)`;
+            orbs[1].style.transform = `translate(-${x * 30}px, -${y * 30}px)`;
+        });
+    </script>
+</body></html>

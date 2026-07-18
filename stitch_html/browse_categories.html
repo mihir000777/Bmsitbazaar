@@ -1,0 +1,353 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>BMSIT BAZAAR | Browse Categories</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Outfit:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;family=Syne:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#e5e1e4",
+                      "surface-container-highest": "#353437",
+                      "on-tertiary-fixed-variant": "#004e59",
+                      "secondary-container": "#00a572",
+                      "primary-fixed-dim": "#eec200",
+                      "tertiary": "#c7f5ff",
+                      "surface-dim": "#131315",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#00311f",
+                      "surface-container-low": "#1c1b1d",
+                      "on-primary-fixed": "#231b00",
+                      "on-secondary-fixed": "#002113",
+                      "on-secondary": "#003824",
+                      "secondary-fixed": "#6ffbbe",
+                      "background-accent": "#1e1b4b",
+                      "inverse-primary": "#735c00",
+                      "tertiary-fixed": "#a0efff",
+                      "on-primary-fixed-variant": "#574500",
+                      "on-secondary-fixed-variant": "#005236",
+                      "background": "#09090b",
+                      "on-tertiary-fixed": "#001f25",
+                      "tertiary-fixed-dim": "#15daf4",
+                      "primary-fixed": "#ffe083",
+                      "on-surface": "#e5e1e4",
+                      "surface-container-lowest": "#0e0e10",
+                      "border-low-light": "rgba(255, 255, 255, 0.05)",
+                      "surface": "#131315",
+                      "on-tertiary": "#00363e",
+                      "surface-container": "#201f22",
+                      "on-error-container": "#ffdad6",
+                      "secondary": "#4edea3",
+                      "primary-container": "#facc15",
+                      "surface-variant": "#353437",
+                      "on-surface-variant": "#d1c6ab",
+                      "on-primary": "#3c2f00",
+                      "on-error": "#690005",
+                      "surface-container-high": "#2a2a2c",
+                      "primary": "#ffecb9",
+                      "inverse-on-surface": "#313032",
+                      "error-container": "#93000a",
+                      "outline": "#9a9078",
+                      "inverse-surface": "#e5e1e4",
+                      "surface-bright": "#39393b",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-tertiary-container": "#006270",
+                      "surface-tint": "#eec200",
+                      "on-primary-container": "#6c5700",
+                      "outline-variant": "#4d4632",
+                      "tertiary-container": "#33e4ff",
+                      "neon-yellow-glow": "rgba(250, 204, 21, 0.4)",
+                      "surface-base": "#18181b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "label-md": ["Outfit"],
+                      "headline-lg-mobile": ["Syne"],
+                      "label-sm": ["Outfit"],
+                      "display-lg": ["Syne"],
+                      "body-lg": ["Outfit"],
+                      "headline-md": ["Syne"],
+                      "headline-lg": ["Syne"],
+                      "body-md": ["Outfit"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: #facc15;
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
+            transform: translateY(-4px);
+        }
+        .bg-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+        }
+        .glow-text {
+            text-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Background Atmospheric Elements -->
+<div class="bg-orb top-[-100px] left-[-100px] bg-primary-container"></div>
+<div class="bg-orb bottom-[-100px] right-[-100px] bg-secondary-container"></div>
+<!-- TopNavBar -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] rounded-full z-50 bg-surface/60 backdrop-blur-xl border border-border-low-light shadow-2xl shadow-neon-yellow-glow flex justify-between items-center px-8 py-3 mx-auto max-w-container-max">
+<div class="flex items-center gap-8">
+<h1 class="font-display-lg text-headline-md text-primary tracking-tighter">BMSIT BAZAAR</h1>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-all duration-300" href="#">Browse</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Categories</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-all duration-300" href="#">Sell</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-all duration-300" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container-low rounded-full px-4 py-1.5 border border-border-low-light">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm w-40" placeholder="Search campus..." type="text">
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">shopping_bag</button>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-5 py-2 rounded-full active:scale-95 transform transition-transform">Sign In</button>
+</div>
+</header>
+<main class="pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Header Section -->
+<section class="mb-12 text-center md:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-secondary/20 bg-secondary/10 text-secondary mb-4">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm">LIVE CAMPUS LISTINGS</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface glow-text mb-2">Browse by Category</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Find exactly what you need for your semester. From tech to gear, the bazaar has it all.</p>
+</section>
+<!-- Category Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Category Card: Electronics -->
+<div class="glass-card group overflow-hidden rounded-xl cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="A high-end cinematic product shot of a sleek professional laptop and wireless headphones on a dark obsidian desk. The lighting is low-key with dramatic neon yellow highlights reflecting off the metallic surfaces. The background is a deep charcoal with a slight atmospheric haze, emphasizing a high-tech premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpmDeGrImOCYvv1noQNe76S9amHFxQC8FXAz_uFgs7LdQsE02Pv70Tk4745CuZl34EV0Z5miBUU_f5wJQvpwmKv9KfX1btz9hgvj2iEWO6JYpkIc6OHOsAo_NQE7JI5N2PmKxPgtigiFdqnRiwXMB_nJGCg6Yx96fkWPS4cMymSrOL1wbOYRWtNI1sY2YHhby3ChFiwAzXddzLR8McUMcVgCjDJOFiONxdskrt2nlH-eR6v6GHlPIP-L8NzLvjMfsRfwX73cKie3U">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-primary-container transition-colors">Electronics</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary-container px-2 py-1 rounded">124 Items</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Laptops, Gadgets, and Accessories.</p>
+<div class="flex items-center text-primary-container font-label-md text-label-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Explore Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Category Card: Academics -->
+<div class="glass-card group overflow-hidden rounded-xl cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="A macro shot of a stack of academic textbooks with gold-leaf lettering on the spines, resting on a dark wood table. The scene is illuminated by a single warm desk lamp, creating high contrast and deep shadows. The mood is scholarly and focused, with a color palette of deep browns and glowing amber." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkRPQIbJmRyDbXqpNCoCayQ5mxPuo_HwJlYMEMFUs_XadM4YO3zWMTMmrEim8z7wTI1xwgl2u2gyFMGqKwK2C9sIVVyVAtt8BSKm4vPn_Wn1N6xNiJg7qUbwPHk_KO1zUGmD-WB1sjcUnfRq1aGRTjCxUNXGi6Qe6Z1HUfBjinzTq-Bwtm2VYT6CkfaLTlEj1i4z2b7wYCvYHTnwwdy2rrLeB_I-HKJjem4qBtqxc4lHn_O9usPnDgy4uQU0Ax8USHEzg3T8Cr9R0">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-primary-container transition-colors">Academics</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary-container px-2 py-1 rounded">89 Items</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Textbooks, Notes, and Drafting Tools.</p>
+<div class="flex items-center text-primary-container font-label-md text-label-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Explore Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Category Card: Lab Equipment -->
+<div class="glass-card group overflow-hidden rounded-xl cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="Close-up of a white professional lab coat and protective eyewear sitting on a dark grey laboratory counter. Soft teal and neon yellow light glows from nearby digital equipment displays. The image is crisp and clinical, maintaining a futuristic tech-centered marketplace feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsBqOLjEwIfs4-BcwnblgcaCDQGwMO7Wm7mu9K4dq0OsnSo5aaOD8H69yIfAhagprCWzUlCBbYGNPD5aOPupSFE5HjrxbTpr--Q0xfAVWK0c9At6HscYVcxXzQ73FW7fcbmn3KFXm7F1XBXvjUXHOkuNdbwoxn2zKMfTWXSMQicujJo29iGDyIANf7JYIeEm71NSJoc4jzdMhWvxqN7ItTS3Ro1-unAYI95Pjux8x9B1XPuJTdjopVpLFe3Zl02t4-fzYYdb7SH6U">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-primary-container transition-colors">Lab Gear</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary-container px-2 py-1 rounded">45 Items</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Aprons, Kits, and Engineering tools.</p>
+<div class="flex items-center text-primary-container font-label-md text-label-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Explore Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Category Card: Hostel Essentials -->
+<div class="glass-card group overflow-hidden rounded-xl cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="A cozy yet modern hostel room setup featuring a dark bedspread, a minimalist desk lamp, and a sleek organizer. The lighting is dim with a soft glow from a hidden neon yellow LED strip. The visual style is contemporary and urban, perfect for an exclusive student marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqCUj-ea6bIRpC8KbEd0CuPTDh5OudcOUn8tIhS-UGdOrAs1FVeGbLF1q2EuWjiXVh-j-dWmmaJnWIi1msZOa1b_KYIufQim8yNJpOrj8DFWkX-5EhecYb0xXL62VSKV4EOx1dH_En_fCvBmnxpOCylMUaAnD9KGmt0VqcW3bdoe4MZf83gNepUpJmC4VyrKVGDIdsFASx5HHL1beLijXlLSZ5Px_MdHVMh--j-Eifzz1hy4l56iAOIhyIhlTSPf8uwV9e4q1U8fo">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-primary-container transition-colors">Hostel Life</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary-container px-2 py-1 rounded">210 Items</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Furniture, Bedding, and Utility.</p>
+<div class="flex items-center text-primary-container font-label-md text-label-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Explore Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Category Card: Campus Travel -->
+<div class="glass-card group overflow-hidden rounded-xl cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="A stylized professional photograph of a black mountain bike against a dark industrial concrete wall. Accent lighting in neon yellow highlights the frame and gears. The image feels fast and high-energy, with a dark-mode cyberpunk commerce vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_zKqWNEUTZ88vkaTxH6N-QeY1Jw7QFBtYklyv2ceso1_igjMzbufhAO22l0XjNehPZKgWPRioABJejsCBpHAFPvo-BQDgxSK8VSQ1kvs7b55nIVz2cqNhjKuoMWuP_cOfvdc8gzw-DVILdt9PvAeDarwvtMitQU_rMHuPueb8WjZwO9ccyLamztee_UABM8CYtIA86Nl3TGwAvz2Cnf3uVgNQencxHe3BVOyoYR5kRywOBe0YPIq9137BxBLF7r0yMHU6cj6XqDA">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-primary-container transition-colors">Travel</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary-container px-2 py-1 rounded">32 Items</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Bicycles, Scooters, and Helmets.</p>
+<div class="flex items-center text-primary-container font-label-md text-label-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Explore Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Category Card: Merch & Style -->
+<div class="glass-card group overflow-hidden rounded-xl cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="A fashionable display of campus hoodies and varsity jackets in a dark boutique setting. The fabrics are textured and high-quality, with neon yellow thread details catching a spotlight. The atmosphere is premium streetwear, aligning with a high-end futuristic commerce platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO3X5ljoZYcFkXYeyM16DNI-cDZaXyOs2ZjUa2Mngp01NJsKnpQrIEspufkj0FKMoAcbTvoT0DLa6Rwlqi4dteOOdawp97xFPXpE9tQgpEeEDVlGU7CazGzJ5yg98t1ShXJU2VX8AagBM-VLf7pT_72NxCU00GaomBxyTg_ydy40sfwD9n8zBha7GR596asGmgcGeDK6DvVGYsnrlCZkaG2Z9agDO3rUyrJzV-6NxZpIHu47lgyALmxiaKvezAO57h2yqMOwm4U7M">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-primary-container transition-colors">Style</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary-container px-2 py-1 rounded">156 Items</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">BMSIT Hoodies, Caps, and Streetwear.</p>
+<div class="flex items-center text-primary-container font-label-md text-label-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Explore Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Category Card: Sports & Fitness -->
+<div class="glass-card group overflow-hidden rounded-xl cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="An artistic arrangement of black dumbbells and a sleek yoga mat in a dark gym environment. Moody, dramatic lighting highlights the textures of the equipment. Vibrant neon yellow accents from gym signage reflect off the surfaces, creating a high-energy athletic feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq9UFgSSJrNXmLrVfXVo4h660wZ6ul5mX7k56ZLaOTCRrh6MvNK9lrnNnLkirZZE6b6o0zUhpHuyiKbAkkY_2ZJkZeHxWB2SSDALDL73kvJL-tPRhlmQmid7Egnmi_98h2H11LhMtoCm-ac47BxgVEurMu7YIUY2xQOS2wnAQxMny2vVepmmCkXVxnSO1k0n66QAPlPvRM4QcoCv4r_GATi-ed-jV4sq6CgMaUGZDARhQ0WJ0nLZhyZJI0YM54ctDX-6P8QnDpIMw">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-primary-container transition-colors">Fitness</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary-container px-2 py-1 rounded">64 Items</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Gym Gear, Rackets, and Sports kits.</p>
+<div class="flex items-center text-primary-container font-label-md text-label-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Explore Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Category Card: Miscellaneous -->
+<div class="glass-card group overflow-hidden rounded-xl cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" data-alt="A collection of eclectic lifestyle items like a vintage camera, a designer watch, and a peculiar art piece on a dark pedestal. The lighting is artistic and moody, with sharp neon yellow contrast. The composition is asymmetrical and high-end, representing miscellaneous curiosities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQc_W2mvCa89gyCn3S2-sgqKKm2Zds55GcHFa8WnznZQjrIO1Mau8ai27KwEpuDVClunhKSLcqc6x3UtgJiTB0SW6dTATBwZPWYq6_QRELFdWjElSIpjoXuJ7QpPZgLZuWpXADovbcRN8MxI370VGOWF8G1wgyfhHrU2_r3ACTVue3jtouWQikar-A5y12ifsFrEg9HhYc6dGNvAf0aymGbb9oij5gRoZ12IX2ak2HUxcxXBM-sjO5Up_zMHM8iQW03dJznFmM1xs">
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md group-hover:text-primary-container transition-colors">Misc</h3>
+<span class="font-label-sm text-label-sm bg-primary-container/10 text-primary-container px-2 py-1 rounded">12 Items</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-4">Uncategorized gems and curiosities.</p>
+<div class="flex items-center text-primary-container font-label-md text-label-md gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Explore Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<section class="mt-20 glass-card rounded-3xl p-12 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/10 blur-[100px] -z-10"></div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">Can't find what you're looking for?</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl mx-auto">New items are listed every hour by fellow students. Set up an alert or start your own listing today.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary-container text-on-primary-container font-headline-md px-10 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all active:scale-95">Post a Listing</button>
+<button class="border border-white/10 font-headline-md px-10 py-4 rounded-xl hover:bg-white/5 transition-all active:scale-95">Set Alerts</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-xl mt-gutter border-t border-border-low-light bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-base gap-4">
+<div class="flex flex-col md:flex-row items-center gap-6">
+<span class="font-display-lg text-headline-md text-primary">BMSIT BAZAAR</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 BMSIT BAZAAR. BUILT FOR THE CAMPUS.</p>
+</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Support</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Safety Guide</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Trade</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy</a>
+</div>
+</footer>
+<script>
+        // Micro-interactions and subtle effects
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.bg-orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            orbs[0].style.transform = `translate(${x * 50}px, ${y * 50}px)`;
+            orbs[1].style.transform = `translate(-${x * 50}px, -${y * 50}px)`;
+        });
+
+        // Search interaction
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('border-primary-container');
+            searchInput.parentElement.classList.add('shadow-[0_0_10px_rgba(250,204,21,0.2)]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('border-primary-container');
+            searchInput.parentElement.classList.remove('shadow-[0_0_10px_rgba(250,204,21,0.2)]');
+        });
+    </script>
+</body></html>
